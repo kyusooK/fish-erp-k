@@ -12,20 +12,14 @@ import lombok.*;
 public class PurchaseCreated extends AbstractEvent {
 
     private String purchaseType;
-    private String supplierCode;
     private LocalDate purchaseDate;
     private LocalDate warehouseArrivalDate;
     private LocalDate storageFeePaymentDate;
     private Boolean storageFeePaymentStatus;
     private String mainShipName;
     private String productName;
-    private String supplierCode;
-    private LocalDate purchaseDate;
-    private LocalDate warehouseArrivalDate;
-    private LocalDate storageFeePaymentDate;
-    private Boolean storageFeePaymentStatus;
-    private String mainShipName;
-    private String productName;
+    private AccountId accountId;
+    private List<PurchaseDetail> purchaseDetails;
 
     public PurchaseCreated(Purchase aggregate) {
         super(aggregate);

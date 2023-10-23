@@ -5,14 +5,6 @@
         </v-card-title>
 
         <v-card-text>
-            <String label="PurchaseType" v-model="value.purchaseType" :editMode="editMode"/>
-            <String label="SupplierCode" v-model="value.supplierCode" :editMode="editMode"/>
-            <Date label="PurchaseDate" v-model="value.purchaseDate" :editMode="editMode"/>
-            <Date label="WarehouseArrivalDate" v-model="value.warehouseArrivalDate" :editMode="editMode"/>
-            <Date label="StorageFeePaymentDate" v-model="value.storageFeePaymentDate" :editMode="editMode"/>
-            <Boolean label="StorageFeePaymentStatus" v-model="value.storageFeePaymentStatus" :editMode="editMode"/>
-            <String label="MainShipName" v-model="value.mainShipName" :editMode="editMode"/>
-            <String label="ProductName" v-model="value.productName" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
@@ -48,14 +40,6 @@
             value: {},
         }),
         created() {
-            this.value.purchaseType = '';
-            this.value.supplierCode = '';
-            this.value.purchaseDate = '2023-10-23';
-            this.value.warehouseArrivalDate = '2023-10-23';
-            this.value.storageFeePaymentDate = '2023-10-23';
-            this.value.storageFeePaymentStatus = false;
-            this.value.mainShipName = '';
-            this.value.productName = '';
         },
         watch: {
         },
