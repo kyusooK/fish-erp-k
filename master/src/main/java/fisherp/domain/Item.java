@@ -13,9 +13,9 @@ import lombok.Data;
 //<<< DDD / Aggregate Root
 public class Item {
 
-    @Id
     private String itemName;
 
+    @Id
     private String itemCode;
 
     private ItemUnit itemUnit;

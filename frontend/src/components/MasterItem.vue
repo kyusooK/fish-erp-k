@@ -16,8 +16,8 @@
         </v-card-title >        
 
         <v-card-text>
-            <String v-if="editMode" label="품명" v-model="value.itemName" :editMode="editMode" :inputUI="'TEXT'"/>
-            <String label="코드" v-model="value.itemCode" :editMode="editMode" :inputUI="'TEXT'"/>
+            <String label="품명" v-model="value.itemName" :editMode="editMode" :inputUI="'TEXT'"/>
+            <String v-if="editMode" label="코드" v-model="value.itemCode" :editMode="editMode" :inputUI="''"/>
             <ItemUnit offline label="단위" v-model="value.itemUnit" :editMode="editMode" @change="change"/>
         </v-card-text>
 
