@@ -11,6 +11,15 @@
             <v-btn  @click="editSelectedRow" class="contrast-primary-text" small color="primary" :disabled="!hasRole('')">
                 <v-icon small>mdi-pencil</v-icon>수정
             </v-btn>
+            <v-btn @click="saleDialog = true" class="contrast-primary-text" small color="primary" >
+                <v-icon small>mdi-minus-circle-outline</v-icon>sale
+            </v-btn>
+            <v-dialog v-model="saleDialog" width="500">
+                <SaleCommand
+                    @closeDialog="saleDialog = false"
+                    @sale="sale"
+                ></SaleCommand>
+            </v-dialog>
             <v-btn @click="deleteSelectedRows" class="contrast-primary-text" small color="primary" :disabled="!hasRole('')">
                 <v-icon small>mdi-minus-circle-outline</v-icon>삭제
             </v-btn>
@@ -125,6 +134,7 @@ export default {
     },
     data: () => ({
         path: 'purchases',
+        saleDialog: false,
     }),
     watch: {
         newValue: {
@@ -148,6 +158,14 @@ export default {
         }
     },
     methods:{
+        sale(params){
+            try{
+                this.repository.invoke(this.getSelectedItem(), "sale", params)
+                this.$EventBus.$emit('show-success','sale 성공적으로 처리되었습니다.')
+            }catch(e){
+                this.$EventBus.$emit('show-error', e);
+            }
+        },
     }
 }
 </script>

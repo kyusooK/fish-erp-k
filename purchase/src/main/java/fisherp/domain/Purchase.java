@@ -53,5 +53,15 @@ public class Purchase {
         );
         return purchaseRepository;
     }
+
+    //<<< Clean Arch / Port Method
+    public void sale(SaleCommand saleCommand) {
+        //implement business logic here:
+
+        FishSold fishSold = new FishSold(this);
+        fishSold.publishAfterCommit();
+    }
+    //>>> Clean Arch / Port Method
+
 }
 //>>> DDD / Aggregate Root
