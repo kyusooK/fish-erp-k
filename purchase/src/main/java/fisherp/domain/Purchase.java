@@ -38,6 +38,9 @@ public class Purchase {
     @ElementCollection
     private List<PurchaseDetail> purchaseDetails;
 
+    @Embedded
+    private AccountId accountId;
+
     @PostPersist
     public void onPostPersist() {
         PurchaseCreated purchaseCreated = new PurchaseCreated(this);

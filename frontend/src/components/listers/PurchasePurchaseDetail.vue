@@ -31,6 +31,7 @@
             </div>
             <AccountId offline label="AccountId" v-model="item.accountId" :editMode="false" :key="false" @change="change" />
             <PurchaseDetailManager offline label="PurchaseDetails" v-model="item.purchaseDetails" :editMode="false" @change="change" />
+            <AccountId offline label="AccountId" v-model="item.accountId" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>
