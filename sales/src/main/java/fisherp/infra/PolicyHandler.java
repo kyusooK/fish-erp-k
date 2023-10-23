@@ -3,7 +3,6 @@ package fisherp.infra;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fisherp.config.kafka.KafkaProcessor;
-import fisherp.domain.*;
 import javax.naming.NameParser;
 import javax.naming.NameParser;
 import javax.transaction.Transactional;

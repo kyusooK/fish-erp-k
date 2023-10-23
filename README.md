@@ -4,8 +4,15 @@
  # 매입 - 오징어 10마리 
 http :8088/purchases accountId[id]="ACC-1" mainShipName="만선호2" purchaseDate="2023-01-01" purchaseDetails[0][itemId]="cuttle fish" purchaseDetails[0][qty]=10
 
+# 매출 - 오징어 5마리
 http PUT :8088/purchases/1/sale itemId="cuttle fish" qty=5
+
+# 확인
 http :8088/purchases/1     # must be 5 remains for cuttle fish
+
+# 검색
+http :8088/purchases/search/findByQueryPur
+chase mainShipName=="만선호"
 
 
 ```
