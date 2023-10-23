@@ -1,4 +1,4 @@
-# 
+# API Usages
 
 ```
  # 매입 - 오징어 10마리 
@@ -78,32 +78,17 @@ npm run serve
 ## Test by UI
 Open a browser to localhost:8088
 
-## Required Utilities
+## To-Dos
 
-- httpie (alternative for curl / POSTMAN) and network utils
-```
-sudo apt-get update
-sudo apt-get install net-tools
-sudo apt install iputils-ping
-pip install httpie
-```
+1. UI 오류 수정
+- Value Object 입력시 문제
+- 참조데이터에 대한 피커 / 뷰어
+- 액션 실행 후 리프래시 안되는
 
-- kubernetes utilities (kubectl)
-```
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-```
+2. UI 추가
+- 옵션으로 그리드에서 직접 데이터 추가/편집하는 기능
+- 전표(세금 계산서/레포트) 등을 생성하는 기능 (msa ez로 모델만 만들고 vue component 는 chat gpt 로 생성할 수 있음)
 
-- aws cli (aws)
-```
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-```
+3. 
 
-- eksctl 
-```
-curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-sudo mv /tmp/eksctl /usr/local/bin
-```
 
