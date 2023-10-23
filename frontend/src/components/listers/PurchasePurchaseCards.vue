@@ -109,6 +109,7 @@
             me.values = temp.data._embedded.purchases;
             
             me.newValue = {
+                'purchaseNo': 0,
                 'purchaseType': '',
                 'purchaseDate': '2023-10-23',
                 'warehouseArrivalDate': '2023-10-23',

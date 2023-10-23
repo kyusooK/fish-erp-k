@@ -15,6 +15,9 @@ import lombok.Data;
 public class Purchase {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long purchaseNo;
+
     private String purchaseType;
 
     private LocalDate purchaseDate;
