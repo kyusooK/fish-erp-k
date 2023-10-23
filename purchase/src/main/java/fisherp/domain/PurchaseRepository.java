@@ -15,7 +15,7 @@ public interface PurchaseRepository
     @Query(
         value = "select purchase " +
         "from Purchase purchase " +
-        "where(:accountId is null or purchase.accountId like %:accountId%) and (:mainShipName is null or purchase.mainShipName like %:mainShipName%) and (:purchaseDate is null or purchase.purchaseDate like %:purchaseDate%)"
+        "where(:accountId is null or purchase.accountId.id like %:accountId%) and (:mainShipName is null or purchase.mainShipName like %:mainShipName%) and (:purchaseDate is null or purchase.purchaseDate > %:purchaseDate%)"
     )
     List<Purchase> findByQueryPurchase(
         String accountId,
