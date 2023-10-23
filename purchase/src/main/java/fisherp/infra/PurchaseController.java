@@ -19,5 +19,27 @@ public class PurchaseController {
 
     @Autowired
     PurchaseRepository purchaseRepository;
+
+    @RequestMapping(
+        value = "purchases/{id}/sale",
+        method = RequestMethod.PUT,
+        produces = "application/json;charset=UTF-8"
+    )
+    public Purchase sale(
+        @PathVariable(value = "id") Long id,
+        @RequestBody SaleCommand saleCommand,
+        HttpServletRequest request,
+        HttpServletResponse response
+    ) throws Exception {
+        System.out.println("##### /purchase/sale  called #####");
+        Optional<Purchase> optionalPurchase = purchaseRepository.findById(id);
+
+        optionalPurchase.orElseThrow(() -> new Exception("No Entity Found"));
+        Purchase purchase = optionalPurchase.get();
+        purchase.sale(saleCommand);
+
+        purchaseRepository.save(purchase);
+        return purchase;
+    }
 }
 //>>> Clean Arch / Inbound Adaptor

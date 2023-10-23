@@ -66,6 +66,20 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
+            <v-btn
+                v-if="!editMode"
+                color="primary"
+                text
+                @click="openSale"
+            >
+                Sale
+            </v-btn>
+            <v-dialog v-model="saleDiagram" width="500">
+                <SaleCommand
+                    @closeDialog="closeSale"
+                    @sale="sale"
+                ></SaleCommand>
+            </v-dialog>
         </v-card-actions>
 
         <v-snackbar
@@ -103,6 +117,7 @@
                 timeout: 5000,
                 text: '',
             },
+            saleDiagram: false,
         }),
 	async created() {
         },
@@ -199,6 +214,32 @@
             },
             change(){
                 this.$emit('input', this.value);
+            },
+            async sale(params) {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links['sale'].href), params)
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                    this.closeSale();
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
+            },
+            openSale() {
+                this.saleDiagram = true;
+            },
+            closeSale() {
+                this.saleDiagram = false;
             },
         },
     }
