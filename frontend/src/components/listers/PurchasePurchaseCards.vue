@@ -119,7 +119,6 @@
                 'productName': '',
                 'accountId': {},
                 'purchaseDetails': [],
-                'accountId': {},
             }
         },
         methods:{

@@ -26,7 +26,6 @@
             <String label="품명" v-model="value.productName" :editMode="editMode" :inputUI="'TEXT'"/>
             <AccountId offline label="매입처" v-model="value.accountId" :editMode="editMode" @change="change"/>
             <PurchaseDetailManager offline label="PurchaseDetails" v-model="value.purchaseDetails" :editMode="editMode" @change="change"/>
-            <AccountId offline label="AccountId" v-model="value.accountId" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions>

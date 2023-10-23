@@ -13,7 +13,10 @@
                     <String class="attributes-list" label="MainShipName" v-model="value.parameters.mainShipName" :editMode="editMode"/>
                 </v-col>
                 <v-col style="max-width:140px;">
-                    <Date class="attributes-list" label="PurchaseDate" v-model="value.parameters.purchaseDate" :editMode="editMode"/>
+                    <Date class="attributes-list" label="PurchaseDateFrom" v-model="value.parameters.purchaseDateFrom" :editMode="editMode"/>
+                </v-col>
+                <v-col style="max-width:140px;">
+                    <Date class="attributes-list" label="PurchaseDateTo" v-model="value.parameters.purchaseDateTo" :editMode="editMode"/>
                 </v-col>
                 <v-col>
                     <v-btn class="gs-query-search-btn contrast-primary-text"

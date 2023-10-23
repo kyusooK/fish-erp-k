@@ -15,12 +15,13 @@ public interface PurchaseRepository
     @Query(
         value = "select purchase " +
         "from Purchase purchase " +
-        "where(:accountId is null or purchase.accountId.id like %:accountId%) and (:mainShipName is null or purchase.mainShipName like %:mainShipName%) and (:purchaseDate is null or purchase.purchaseDate > %:purchaseDate%)"
+        "where (:accountId is null or purchase.accountId.id like %:accountId%) and (:mainShipName is null or purchase.mainShipName like %:mainShipName%) and (:purchaseDateFrom is null or purchase.purchaseDate > :purchaseDateFrom) and (:purchaseDateTo is null or purchase.purchaseDate < :purchaseDateTo)"
     )
     List<Purchase> findByQueryPurchase(
         String accountId,
         String mainShipName,
-        Date purchaseDate,
+        Date purchaseDateFrom,
+        Date purchaseDateTo,
         Pageable pageable
     );
 }
