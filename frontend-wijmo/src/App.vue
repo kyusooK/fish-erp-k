@@ -132,14 +132,6 @@ export default {
                     { key: 'purchases', url: '/purchases', name: '매입' },
                 ]
             },
-            { id: 'sales', title: 'Sales',
-                items: [
-                ]
-            },
-            { id: 'inventory', title: 'Inventory',
-                items: [
-                ]
-            },
         ],
         cards: [
             {
