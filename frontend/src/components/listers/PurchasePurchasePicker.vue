@@ -44,9 +44,6 @@
                             <v-list-item-subtitle>
                                 PurchaseDetails :  {{item.purchaseDetails }}
                             </v-list-item-subtitle>
-                            <v-list-item-subtitle>
-                                AccountId :  {{item.accountId }}
-                            </v-list-item-subtitle>
                         </v-list-item-content>
 
                         <v-list-item-action>
@@ -98,8 +95,6 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['purchaseNo'] = arr[4]; 
-                    
-                    
                     
                     
                     

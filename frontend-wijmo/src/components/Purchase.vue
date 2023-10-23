@@ -9,7 +9,6 @@
         <String label="본선명" v-model="value.mainShipName" :editMode="editMode"/>
         <String label="품명" v-model="value.productName" :editMode="editMode"/>
         <AccountId offline label="매입처" v-model="value.accountId" :editMode="editMode" @change="change"/>
-        <AccountId offline label="AccountId" v-model="value.accountId" :editMode="editMode" @change="change"/>
         <PurchaseDetailDetailGrid label="PurchaseDetails" offline v-model="value.purchaseDetails" :editMode="editMode" @change="change"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>

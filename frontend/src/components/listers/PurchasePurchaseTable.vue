@@ -76,7 +76,6 @@
                     { text: "productName", value: "productName" },
                     { text: "accountId", value: "accountId" },
                     { text: "purchaseDetails", value: "purchaseDetails" },
-                    { text: "accountId", value: "accountId" },
                 ],
             purchase : [],
             newValue: {},
@@ -104,7 +103,6 @@
                 'productName': '',
                 'accountId': {},
                 'purchaseDetails': [],
-                'accountId': {},
             }
         },
         methods: {

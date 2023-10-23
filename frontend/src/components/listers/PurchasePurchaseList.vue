@@ -50,7 +50,6 @@
                             
                             
                             
-                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
@@ -64,7 +63,6 @@
                             [ ProductName :  {{data.productName }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ AccountId :  {{data.accountId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ PurchaseDetails :  {{data.purchaseDetails }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ AccountId :  {{data.accountId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -142,7 +140,6 @@
                 'productName': '',
                 'accountId': {},
                 'purchaseDetails': [],
-                'accountId': {},
             }
         },
         methods: {

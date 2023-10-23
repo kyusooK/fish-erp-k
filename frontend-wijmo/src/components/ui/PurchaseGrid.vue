@@ -37,7 +37,7 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="['RowHeader','purchaseType','purchaseDate','warehouseArrivalDate','storageFeePaymentDate','storageFeePaymentStatus','mainShipName','productName','accountId','purchaseDetails','accountId',]" />
+            <wj-flex-grid-filter :filterColumns="['RowHeader','purchaseType','purchaseDate','warehouseArrivalDate','storageFeePaymentDate','storageFeePaymentStatus','mainShipName','productName','accountId','purchaseDetails',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="purchaseType" header="매입구분" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="purchaseDate" header="매입일자" width="2*" :isReadOnly="true" align="center" />
@@ -142,7 +142,6 @@ export default {
                         'productName': '',
                         'accountId': {},
                         'purchaseDetails': [],
-                        'accountId': {},
                     }
                 }
             }
