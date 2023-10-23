@@ -40,7 +40,11 @@
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="representative" header="대표자" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="businessRegistrationNumber" header="사업자 번호" width="2*" :isReadOnly="true" align="center" />
-            <wj-flex-grid-column binding="address" header="주소" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="address" header="주소" width="2*" :isReadOnly="true" align="center">
+                <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
+                    <Address v-model="cell.item.address" :editMode="editMode"></Address>
+                </wj-flex-grid-cell-template>
+            </wj-flex-grid-column>
             <wj-flex-grid-column binding="industry" header="업종" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="category" header="종목" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="customerType" header="거래처 구분" width="2*" :isReadOnly="true" align="center" />

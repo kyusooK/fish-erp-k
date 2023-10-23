@@ -20,6 +20,7 @@ public class Account {
 
     private String businessRegistrationNumber;
 
+    @Embedded
     private Address address;
 
     private String industry;

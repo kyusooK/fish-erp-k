@@ -93,7 +93,7 @@
                 'accountName': '',
                 'representative': '',
                 'businessRegistrationNumber': '',
-                'address': '',
+                'address': {},
                 'industry': '',
                 'category': '',
                 'customerType': '',
