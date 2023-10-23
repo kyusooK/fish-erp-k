@@ -14,6 +14,9 @@ import lombok.Data;
 public class Account {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private String accountName;
 
     private String representative;

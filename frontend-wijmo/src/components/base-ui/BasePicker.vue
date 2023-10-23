@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-text-field :label="label" v-model="searchKeyword"></v-text-field>
+        <!-- <v-text-field :label="label" v-model="searchKeyword"></v-text-field> -->
         <v-combobox
             :items="list"
             :item-text="nameField"

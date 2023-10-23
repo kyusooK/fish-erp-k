@@ -6,7 +6,7 @@
         </div>
         <v-col>
             <ItemId offline label="ItemId" v-model="value.itemId" :editMode="editMode" @change="change"/>
-            <BigDecimal offline label="UnitPrice" v-model="value.unitPrice" :editMode="editMode" @change="change"/>
+            <Number offline label="UnitPrice" v-model="value.unitPrice" :editMode="editMode" @change="change"/>
             <Number label="Qty" v-model="value.qty" :editMode="editMode"/>
         </v-col>
 

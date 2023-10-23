@@ -26,7 +26,7 @@
             </wj-flex-grid-column>
             <wj-flex-grid-column binding="unitPrice.name" header="UnitPrice" width="2*" :isReadOnly="true" align="center">
                 <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">
-                    <UnitPrice v-model="cell.item.unitPrice" :editMode="editMode"></UnitPrice>
+                    <Number v-model="cell.item.unitPrice" :editMode="editMode"/>
                 </wj-flex-grid-cell-template>
             </wj-flex-grid-column>
             <wj-flex-grid-column binding="qty" header="Qty" width="2*" :isReadOnly="true" align="center">

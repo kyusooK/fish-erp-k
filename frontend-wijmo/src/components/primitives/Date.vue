@@ -26,10 +26,13 @@
                         scrollable
                 >
                     <v-spacer></v-spacer>
+                    <v-btn text color="primary" @click="resetDate()">
+                        Reset
+                    </v-btn>
                     <v-btn text color="primary" @click="menu = false">
                         Cancel
                     </v-btn>
-                    <v-btn text color="primary" @click="$refs.menu.save(date)">
+                    <v-btn text color="primary" @click="setDate(date)">
                         OK
                     </v-btn>
                 </v-date-picker>
@@ -57,6 +60,7 @@
         }),
         created() {
             if(!this.value) {
+                this.date = null;
                 this.value = this.date;
             }
         },
@@ -68,6 +72,14 @@
         methods:{
             change(){
                 this.$emit("input", this.value);
+            },
+            resetDate(){
+                this.date = null;
+                this.value = this.date
+                this.setDate(this.value)
+            },
+            setDate(date){
+                this.$refs.menu.save(date)
             }
         }
     }
