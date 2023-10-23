@@ -15,7 +15,6 @@ import org.springframework.beans.BeanUtils;
 @NoArgsConstructor
 public class ItemId {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 }
 //>>> DDD / Value Object
