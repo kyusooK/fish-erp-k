@@ -15,6 +15,9 @@
                             <v-list-item-title>
                             </v-list-item-title>
                             <v-list-item-subtitle>
+                                PurchaseNo :  {{item.purchaseNo }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
                                 PurchaseType :  {{item.purchaseType }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
@@ -91,7 +94,9 @@
                 var obj = {}
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
-                    obj['purchaseType'] = arr[4]; 
+                    obj['purchaseNo'] = arr[4]; 
+                    
+                    
                     
                     
                     

@@ -49,9 +49,11 @@
                             
                             
                             
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
+                            [ PurchaseNo :  {{data.purchaseNo }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ PurchaseType :  {{data.purchaseType }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ PurchaseDate :  {{data.purchaseDate }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ WarehouseArrivalDate :  {{data.warehouseArrivalDate }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -128,6 +130,7 @@
             this.values = temp.data._embedded.purchases;
             
             this.newValue = {
+                'purchaseNo': 0,
                 'purchaseType': '',
                 'purchaseDate': '2023-10-23',
                 'warehouseArrivalDate': '2023-10-23',

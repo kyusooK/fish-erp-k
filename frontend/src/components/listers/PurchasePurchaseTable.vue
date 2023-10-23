@@ -66,6 +66,7 @@
             values: [],
             headers: 
                 [
+                    { text: "purchaseNo", value: "purchaseNo" },
                     { text: "purchaseType", value: "purchaseType" },
                     { text: "purchaseDate", value: "purchaseDate" },
                     { text: "warehouseArrivalDate", value: "warehouseArrivalDate" },
@@ -92,6 +93,7 @@
             this.values = temp.data._embedded.purchases;
 
             this.newValue = {
+                'purchaseNo': 0,
                 'purchaseType': '',
                 'purchaseDate': '2023-10-23',
                 'warehouseArrivalDate': '2023-10-23',

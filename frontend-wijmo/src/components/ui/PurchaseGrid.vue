@@ -36,8 +36,9 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="['RowHeader','purchaseDate','warehouseArrivalDate','storageFeePaymentDate','storageFeePaymentStatus','mainShipName','productName','accountId','purchaseDetails',]" />
+            <wj-flex-grid-filter :filterColumns="['RowHeader','purchaseType','purchaseDate','warehouseArrivalDate','storageFeePaymentDate','storageFeePaymentStatus','mainShipName','productName','accountId','purchaseDetails',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
+            <wj-flex-grid-column binding="purchaseType" header="매입구분" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="purchaseDate" header="매입일자" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="warehouseArrivalDate" header="입고일자" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="storageFeePaymentDate" header="보관료부담일자" width="2*" :isReadOnly="true" align="center" />
@@ -130,6 +131,7 @@ export default {
             handler:function(){
                 if(!this.newValue){
                     this.newValue = {
+                        'purchaseNo': 0,
                         'purchaseType': '',
                         'purchaseDate': '2023-10-23',
                         'warehouseArrivalDate': '2023-10-23',
