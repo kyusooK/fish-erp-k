@@ -36,9 +36,9 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="['RowHeader','itemCode','itemUnit',]" />
+            <wj-flex-grid-filter :filterColumns="['RowHeader','itemName','itemUnit',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
-            <wj-flex-grid-column binding="itemCode" header="코드" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="itemName" header="품명" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="itemUnit" header="단위" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
         <v-col>

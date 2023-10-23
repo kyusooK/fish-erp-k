@@ -73,9 +73,9 @@
                 var obj = {}
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
-                    obj['itemName'] = arr[4]; 
                     
                     
+                    obj['itemCode'] = arr[4]; 
                     
                     
                     
