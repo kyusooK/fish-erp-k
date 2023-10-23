@@ -63,6 +63,7 @@
             editMode: Boolean,
             value : Object,
             label : String,
+            inList: Boolean
         },
         data: () => ({
             latitude: 37.5666805,
