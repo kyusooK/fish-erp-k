@@ -3,6 +3,7 @@ package fisherp.domain;
 import fisherp.PurchaseApplication;
 import fisherp.domain.PurchaseCreated;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -57,9 +58,25 @@ public class Purchase {
     //<<< Clean Arch / Port Method
     public void sale(SaleCommand saleCommand) {
         //implement business logic here:
+        List<PurchaseDetail> changed = new ArrayList<>();
+        getPurchaseDetails().forEach(purchaseDetail -> {
+            if(purchaseDetail.getItemId().getId().equals(saleCommand.getItemId())){
+                purchaseDetail.setQty(purchaseDetail.getQty() - saleCommand.getQty());    
+                changed.add(purchaseDetail);            
+            }
+        });
 
-        FishSold fishSold = new FishSold(this);
-        fishSold.publishAfterCommit();
+        if(changed.size()>0){
+            repository().save(this);
+
+            FishSold fishSold = new FishSold();
+            fishSold.setItemId(saleCommand.getItemId());
+            fishSold.setStock(changed.get(0).getQty());
+            fishSold.publishAfterCommit();
+
+        }else{
+            throw new RuntimeException("해당 id 의 품목이 존재하지 않습니다");
+        }
     }
     //>>> Clean Arch / Port Method
 

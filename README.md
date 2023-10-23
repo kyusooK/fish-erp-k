@@ -1,5 +1,16 @@
 # 
 
+```
+ # 매입 - 오징어 10마리 
+http :8088/purchases accountId[id]="ACC-1" mainShipName="만선호2" purchaseDate="2023-01-01" purchaseDetails[0][itemId]="cuttle fish" purchaseDetails[0][qty]=10
+
+http PUT :8088/purchases/1/sale itemId="cuttle fish" qty=5
+http :8088/purchases/1     # must be 5 remains for cuttle fish
+
+
+```
+
+
 ## Model
 www.msaez.io/#/storming/fisherp
 
