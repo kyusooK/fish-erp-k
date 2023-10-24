@@ -119,22 +119,6 @@ export default {
         path: 'accounts',
     }),
     watch: {
-        newValue: {
-            deep:true,
-            handler:function(){
-                if(!this.newValue){
-                    this.newValue = {
-                        'accountName': '',
-                        'representative': '',
-                        'businessRegistrationNumber': '',
-                        'address': {},
-                        'industry': '',
-                        'category': '',
-                        'customerType': '',
-                    }
-                }
-            }
-        }
     },
     methods:{
     }

@@ -71,74 +71,80 @@ Vue.prototype.$ManagerLists.forEach(function(item, idx) {
   })
 })
 
-// let initOptions = {
-//   url: `http://localhost:9090/`,
-//   realm: `master`,
-//   clientId: `cliend-name`,
-//   onLoad: `login-required`,
-// };
+let initOptions = {
+  url: `http://localhost:9090/`,
+  realm: `master`,
+  clientId: `cliend-name`,
+  onLoad: `login-required`,
+};
 
 
-// let keycloak = new Keycloak(initOptions);
+let keycloak = new Keycloak(initOptions);
 
-// init();
+init();
 
-// function init() {
-//   keycloak.init({
-//     onLoad: initOptions.onLoad,
-//   }).then(auth => {
-//     const ONE_MINUTE = 60000;
-  
-//     if (!auth) {
-//       window.location.reload();
-//     } else {
-//       console.info(`Auth ok`);
-//     }
+function init() {
+  const ONE_MINUTE = 1000;
+  const initPromise = keycloak.init({ onLoad: initOptions.onLoad });
+  const timeoutPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(new Error('Initialization timeout'));
+    }, ONE_MINUTE);
+  });
 
-//     Vue.prototype.$OAuth = keycloak
-  
-//     new Vue({
-//       vuetify,
-//       router,
-//       render: h => h(App, {
-//         props: {
-//           OAuth: keycloak,
-//         },
-//       }),
-//     }).$mount("#app");
-  
-//     window.setTimeout(refreshToken.bind(null, keycloak), ONE_MINUTE);
-//   }).catch(() => {
-    
-    new Vue({
-      vuetify,
-      router,
-      render: h => h(App)
-    }).$mount("#app");
+  Promise.race([initPromise, timeoutPromise])
+    .then((auth) => {
+      if (!auth) {
+        window.location.reload();
+      } else {
+        console.info(`Auth ok`);
+      }
 
-//     console.error(`Auth Fail`);
-//   })
-// }
+      Vue.prototype.$OAuth = keycloak;
 
-// function refreshToken() {
-//   keycloak.updateToken(70).then(refreshed => {
-//     if (refreshed) {
-//       successRefresh(refreshed);
-//     } else {
-//       warnRefresh();
-//     }
-//   }).error(errorRefresh);
-// }
+      new Vue({
+        vuetify,
+        router,
+        render: (h) =>
+          h(App, {
+            props: {
+              OAuth: keycloak,
+            },
+          }),
+      }).$mount("#app");
 
-// function successRefresh(refreshed) {
-//   console.debug(`Token refreshed ${refreshed}`);
-// }
+      window.setTimeout(refreshToken.bind(null, keycloak), ONE_MINUTE);
+    })
+    .catch((error) => {
+      console.error(`Initialization error:`, error);
 
-// function warnRefresh() {
-//   console.warn(`Token not refreshed, valid for 
-//   ${Math.round(keycloak.tokenParsed.exp + keycloak.timeSkew - new Date().getTime() / 1000)} seconds`);
-// }
+      new Vue({
+        vuetify,
+        router,
+        render: (h) => h(App),
+      }).$mount("#app");
+    });
+}
 
-// function errorRefresh() {
-//   console.error('Failed to refresh token');
-// }
+function refreshToken() {
+  keycloak.updateToken(70).then(refreshed => {
+    if (refreshed) {
+      successRefresh(refreshed);
+    } else {
+      warnRefresh();
+    }
+  }).error(errorRefresh);
+}
+
+function successRefresh(refreshed) {
+  console.debug(`Token refreshed ${refreshed}`);
+}
+
+function warnRefresh() {
+  console.warn(`Token not refreshed, valid for 
+  ${Math.round(keycloak.tokenParsed.exp + keycloak.timeSkew - new Date().getTime() / 1000)} seconds`);
+}
+
+function errorRefresh() {
+  console.error('Failed to refresh token');
+}

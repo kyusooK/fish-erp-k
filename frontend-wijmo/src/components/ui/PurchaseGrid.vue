@@ -136,27 +136,6 @@ export default {
         path: 'purchases',
         saleDialog: false,
     }),
-    watch: {
-        newValue: {
-            deep:true,
-            handler:function(){
-                if(!this.newValue){
-                    this.newValue = {
-                        'purchaseNo': 0,
-                        'purchaseType': '',
-                        'purchaseDate': '2023-10-23',
-                        'warehouseArrivalDate': '2023-10-23',
-                        'storageFeePaymentDate': '2023-10-23',
-                        'storageFeePaymentStatus': false,
-                        'mainShipName': '',
-                        'productName': '',
-                        'accountId': {},
-                        'purchaseDetails': [],
-                    }
-                }
-            }
-        }
-    },
     methods:{
         sale(params){
             try{
@@ -165,6 +144,7 @@ export default {
             }catch(e){
                 this.$EventBus.$emit('show-error', e);
             }
+            this.saleDialog = false
         },
     }
 }

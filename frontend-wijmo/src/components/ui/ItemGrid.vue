@@ -109,20 +109,6 @@ export default {
     data: () => ({
         path: 'items',
     }),
-    watch: {
-        newValue: {
-            deep:true,
-            handler:function(){
-                if(!this.newValue){
-                    this.newValue = {
-                        'itemName': '',
-                        'itemCode': '',
-                        'itemUnit': {},
-                    }
-                }
-            }
-        }
-    },
     methods:{
     }
 }

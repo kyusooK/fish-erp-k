@@ -12,11 +12,11 @@ import lombok.Data;
 @Data
 //<<< DDD / Aggregate Root
 public class Item {
+    @Id
+    private String itemCode;
 
     private String itemName;
 
-    @Id
-    private String itemCode;
 
     private ItemUnit itemUnit;
 

@@ -18,7 +18,7 @@ public interface PurchaseRepository
         "where (:accountId is null or purchase.accountId.id like %:accountId%) and (:mainShipName is null or purchase.mainShipName like %:mainShipName%) and (:purchaseDateFrom is null or purchase.purchaseDate > TO_DATE(:purchaseDateFrom, 'YYYY-MM-DD')) and (:purchaseDateTo is null or purchase.purchaseDate < TO_DATE(:purchaseDateTo, 'YYYY-MM-DD'))"
     )
     List<Purchase> findByQueryPurchase(
-        String accountId,
+        AccountId accountId,
         String mainShipName,
         String purchaseDateFrom,
         String purchaseDateTo,

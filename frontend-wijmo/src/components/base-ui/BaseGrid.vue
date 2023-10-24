@@ -20,10 +20,8 @@ import * as wjcCore from "@grapecity/wijmo";
 export default {
     name: 'BaseGrid',
     data: () => ({
-        newValue: null,
         flex: null,
         tick : true,
-        openDialog : false,
         itemToEdit: null,
         selectedRow: null,
         path: 'path',
@@ -66,7 +64,7 @@ export default {
             }
         },
         addNewRow() {
-            this.newValue = null
+            this.newValue = {}
             this.openDialog = true;
         },
         editSelectedRow() {
@@ -164,11 +162,13 @@ export default {
         append() {
             this.tick = false;
             this.openDialog = false
+            this.$EventBus.$emit('changeSelected', this.openDialog)
             
             if (!this.value) {
                 this.value = [];
             }
             const newItem = { ...this.newValue};
+            this.newValue = {}
 
             this.value.push(newItem);
             this.$emit('input', this.value);

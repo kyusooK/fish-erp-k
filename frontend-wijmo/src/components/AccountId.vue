@@ -30,6 +30,7 @@ export default {
     async created(){
         if (this.value && this.value.id !== undefined) {
             this.value = await this.repository.findById(this.value.id)
+            this.$emit("input", this.value)
         }
     },
     methods: {

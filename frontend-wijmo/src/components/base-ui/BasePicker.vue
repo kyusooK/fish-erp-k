@@ -58,6 +58,13 @@ export default {
             this.fillSelections()
         }
     },
+    mounted() {
+        this.$EventBus.$on('changeSelected', (dialog) => {
+            if (!dialog) {
+                this.selected = null;
+            }
+        });
+    },
     watch:{
         "selected": {
             handler: _.debounce(async function () {
@@ -78,7 +85,7 @@ export default {
                 temp = await me.repository.find(query);
                 me.list = temp;
             }, 500),
-        }
+        },
     },
     methods: {
         async fillSelections(){
@@ -99,6 +106,7 @@ export default {
                 this.$emit('selected', null)
             }
         },
+        
     },
 };
 </script>

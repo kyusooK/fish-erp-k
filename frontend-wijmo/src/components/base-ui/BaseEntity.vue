@@ -24,11 +24,15 @@
             path: '/path',
             repository: null,
             updateCompanyDiagram: false,
+            openDialog : false,
         }),
         created(){
+            this.$emit("input", this.newValue)
             if(this.value==null) this.value = {}
 
             this.repository = new BaseRepository(axios, this.path)
+        },
+        watch:{
         },
         methods:{
             selectFile(){
@@ -108,6 +112,7 @@
             closeDialog(){
                 this.openDialog = false
                 this.editMode = false
+                this.$EventBus.$emit('changeSelected', this.openDialog)
             },
 
         },

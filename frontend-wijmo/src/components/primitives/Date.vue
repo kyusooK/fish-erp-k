@@ -64,6 +64,13 @@
                 this.value = this.date;
             }
         },
+        mounted() {
+        this.$EventBus.$on('changeSelected', (dialog) => {
+            if (!dialog) {
+                this.date = null;
+            }
+        });
+    },
         watch: {
             value() {
                 this.change();
@@ -80,6 +87,7 @@
             },
             setDate(date){
                 this.$refs.menu.save(date)
+                this.$emit("input", date);
             }
         }
     }
